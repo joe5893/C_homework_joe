@@ -35,14 +35,14 @@ void testSqrt(){
     printf("%.4f\n",Sqrt(0.09,0.0001));
 }
 
-//用二分逼近法,比如计算5的平方根,那么2^2=4,3^2=9,
+//用二分查找法,比如计算5的平方根,那么2^2=4,3^2=9,
 //可以知道√5在2和3之间,而后计算2.5^2=6.25>5,
 //可以知道√5在2到2.5之间,
 //不断重复这个过程可以计算出√5任意位小数.
-void f(double a,double error){
+void f1(double a,double error){
 	double low,high,mid,delta;		
 	low = 0;
-	high = a;
+	high = a;                                                                                                                 
 	mid = (low+high)/2;
 	while(1){
 		delta = mid*mid-a;				
@@ -61,6 +61,26 @@ void f(double a,double error){
 	
 	printf("a=%0.2f, rootsquare=%0.2f\n",a,mid);
 }
+
+void f(double a,double error){
+	double low,high,mid,delta;		
+	low = 0;
+	high = a;                                                                                                                 
+	
+	do{
+		mid = (low+high)/2;
+		delta = mid*mid-a;		//计算误差				
+		
+		if(delta>0){
+			high = mid;
+		}
+		else{
+			low = mid;
+		}		
+	}while(fabs(delta) > error);
+	
+	printf("a=%0.2f, rootsquare=%0.2f\n",a,mid);
+}
 void homework(){
 	//作业要求的输入和输出： 
 }
@@ -69,6 +89,8 @@ int main()
      f(5,0.01);
      
      f(2,0.01);
+     
+     f(4,0.01);
      
      //homework(); 
      //testSqrt();

@@ -37,37 +37,7 @@ int find(int *a,int len){
 	
 	return min2;
 }
-void d(){
-	int n,i,j;
-	scanf("%d",&n);
-	
-	
-	int *b=(int *)malloc(sizeof(int)*n);//保存每组的结果 
-	for (i=0;i<n;i++){
-		int num;//每组有几个元素
-		scanf("%d",&num);
-		int *a=(int *)malloc(sizeof(int)*num);
-		
-		for(j=0;j<num;j++){
-			scanf("%d",&a[j]);
-		}
-		
-		b[i]=find(a,num);
-		
-		free(a);
-	}
-	
-	for(i=0;i<n;i++){
-		if(b[i]==NULL){//不能用NULL !!!!!!!!!!!!!!!! 
-			printf("ERROR");  //未完善 
-		}
-		else{
-			printf("%d\n",b[i]);
-		}
-	}
-	free(b);
-	
-} 
+
 
 
 //从头向尾遍历,将最小数(相对)沉入尾部(相对)
@@ -168,7 +138,35 @@ void testLi(){
 	printf("\n");
 }
 void homework(){
-	//作业要求的输入和输出： 
+	//作业要求的输入和输出：
+	int n,i,j;
+	scanf("%d",&n);
+	
+	
+	int *b=(int *)malloc(sizeof(int)*n);//保存每组的结果 
+	for (i=0;i<n;i++){
+		int num;//每组有几个元素
+		scanf("%d",&num);
+		int *a=(int *)malloc(sizeof(int)*num);
+		
+		for(j=0;j<num;j++){
+			scanf("%d",&a[j]);
+		}
+		
+		b[i]=find(a,num);
+		
+		free(a);
+	}
+	
+	for(i=0;i<n;i++){
+		if(b[i]==NULL){//不能用NULL !!!!!!!!!!!!!!!! 
+			printf("ERROR");  //未完善 
+		}
+		else{
+			printf("%d\n",b[i]);
+		}
+	}
+	free(b); 
 }
 int main(){
 	testLi();

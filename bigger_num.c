@@ -12,7 +12,7 @@ double bigger_num(double num1,double num2){
 int main(){
 	double num1,num2;
 	scanf("%lf%lf",&num1,&num2);
-	double bigger=bigger_num(num1,num2);
+	double bigger=bigger_num(num1,num2);//¿ÉÒÔÓÃ£º bigger = (num1 > num2 ) ? num1:num2;
 	printf("%lf\n",bigger);
 	
 	return 0;
