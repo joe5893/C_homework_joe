@@ -3,9 +3,11 @@
 //find the second smallest integer
 
 int find(int *a,int len){
+
+
 	if(a<2)
 		return NULL;//???
-		//Î´¿¼ÂÇÈ«²¿ÏàµÈÇé¿ö 
+		//æœªè€ƒè™‘å…¨éƒ¨ç›¸ç­‰æƒ…å†µ 
 	
 	int i,min=a[0],flag=1;// 
 	for(i=1;i<len;i++){
@@ -30,7 +32,7 @@ int find(int *a,int len){
 		if(a[i]>min&&min2>a[i]){
 			min2=a[i];
 		}
-//		if(min2!=i&&){       //´Ë´¦Âß¼­¡£¡£¡£´ı¸Ä½ø£¡ 
+//		if(min2!=i&&){       //æ­¤å¤„é€»è¾‘ã€‚ã€‚ã€‚å¾…æ”¹è¿›ï¼ 
 //			min2=a[i];
 //		}
 	}
@@ -40,13 +42,13 @@ int find(int *a,int len){
 
 
 
-//´ÓÍ·ÏòÎ²±éÀú,½«×îĞ¡Êı(Ïà¶Ô)³ÁÈëÎ²²¿(Ïà¶Ô)
+//ä»å¤´å‘å°¾éå†,å°†æœ€å°æ•°(ç›¸å¯¹)æ²‰å…¥å°¾éƒ¨(ç›¸å¯¹)
 void BubbleSort(int *arr,int sz){
     int i = 0;
     int j = 0;
     
     for(i=0;i<sz-1;i++){
-    	//Ã¿Ã°ÅİÒ»ÂÖ£¬¾Í½«±¾ÂÖ×îĞ¡Êı·Åµ½Ä©Î²
+    	//æ¯å†’æ³¡ä¸€è½®ï¼Œå°±å°†æœ¬è½®æœ€å°æ•°æ”¾åˆ°æœ«å°¾
         for(j=0;j<sz-i-1;j++){
             if(arr[j]<arr[j+1]){
                 int tmp = arr[j];
@@ -72,7 +74,7 @@ void li(int *arr,int sz){
     int min,min2,k,min2found=0;
 	
     for(i=0;i<sz-1;i++){
-    	//Ã°ÅİÒ»´Î£º°Ñ×îĞ¡µÄÒ»¸öÃ°µ½×îºó 
+    	//å†’æ³¡ä¸€æ¬¡ï¼šæŠŠæœ€å°çš„ä¸€ä¸ªå†’åˆ°æœ€å 
         for(j=0;j<sz-i-1;j++){
             if(arr[j]<arr[j+1]){
                 int tmp = arr[j];
@@ -84,10 +86,10 @@ void li(int *arr,int sz){
         if(i==0) {
         	min = arr[sz-1];
         }
-        //ÏÔÊ¾Ã¿ÂÖÃ°Åİ½á¹û£º 
+        //æ˜¾ç¤ºæ¯è½®å†’æ³¡ç»“æœï¼š 
         printArr(arr,sz);
         
-        //Èç¹ûmin2ÕÒµ½£¬ÖÕÖ¹Ã°Åİ 
+        //å¦‚æœmin2æ‰¾åˆ°ï¼Œç»ˆæ­¢å†’æ³¡ 
         if(arr[sz-i-1]>min){
         	min2 = arr[sz-i-1];      
 			min2found = 1;  	
@@ -96,7 +98,7 @@ void li(int *arr,int sz){
         }
     }
     
-    //Èç¹ûÃ°ÍêÁËÊÇÕâÖÖ: 9555555 »òÕß95,ÔòÇ°Ãæ²»¿ÉÄÜÕÒµ½min2£¬ĞèÒªÌØÊâ´¦Àí£º 
+    //å¦‚æœå†’å®Œäº†æ˜¯è¿™ç§: 9555555 æˆ–è€…95,åˆ™å‰é¢ä¸å¯èƒ½æ‰¾åˆ°min2ï¼Œéœ€è¦ç‰¹æ®Šå¤„ç†ï¼š 
     if(sz>1 && min2found==0 && arr[0]>arr[1]){
     	min2 = arr[0];      
 		min2found = 1;  	
@@ -108,7 +110,7 @@ void li(int *arr,int sz){
 
 
 void testLi(){
-	//ÏÈÕë¶ÔÒ»°ãµÄÇé¿öĞ´£¬µ÷Í¨ºó£¬ÔÙ´¦ÀíÌØÊâÇé¿ö 
+	//å…ˆé’ˆå¯¹ä¸€èˆ¬çš„æƒ…å†µå†™ï¼Œè°ƒé€šåï¼Œå†å¤„ç†ç‰¹æ®Šæƒ…å†µ 
 	int b[]={6,5,10,8,5,13};	
 	li(b,6);
 	printf("\n");
@@ -138,14 +140,14 @@ void testLi(){
 	printf("\n");
 }
 void homework(){
-	//×÷ÒµÒªÇóµÄÊäÈëºÍÊä³ö£º
+	//ä½œä¸šè¦æ±‚çš„è¾“å…¥å’Œè¾“å‡ºï¼š
 	int n,i,j;
 	scanf("%d",&n);
 	
 	
-	int *b=(int *)malloc(sizeof(int)*n);//±£´æÃ¿×éµÄ½á¹û 
+	int *b=(int *)malloc(sizeof(int)*n);//ä¿å­˜æ¯ç»„çš„ç»“æœ 
 	for (i=0;i<n;i++){
-		int num;//Ã¿×éÓĞ¼¸¸öÔªËØ
+		int num;//æ¯ç»„æœ‰å‡ ä¸ªå…ƒç´ 
 		scanf("%d",&num);
 		int *a=(int *)malloc(sizeof(int)*num);
 		
@@ -159,8 +161,8 @@ void homework(){
 	}
 	
 	for(i=0;i<n;i++){
-		if(b[i]==NULL){//²»ÄÜÓÃNULL !!!!!!!!!!!!!!!! 
-			printf("ERROR");  //Î´ÍêÉÆ 
+		if(b[i]==NULL){//ä¸èƒ½ç”¨NULL !!!!!!!!!!!!!!!! 
+			printf("ERROR");  //æœªå®Œå–„ 
 		}
 		else{
 			printf("%d\n",b[i]);
